@@ -1,0 +1,25 @@
+@keyframes background-stat-primary-color-anim {
+    from {
+      background-color: #F6FAFF;
+    }
+    to {
+      background-color: #DFEDFF;
+    }
+  }
+
+  .primary-stat-color-animate {
+    animation: background-stat-primary-color-anim 1s linear infinite alternate;
+  }
+
+@keyframes background-stat-secondary-color-anim {
+    from {
+    background-color: #F7E6D0;
+    }
+    to {
+    background-color:  #F8DCB8
+    }
+}
+
+    .secondary-stat-color-animate {
+        animation: background-stat-secondary-color-anim 1s linear infinite alternate;
+    }

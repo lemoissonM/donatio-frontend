@@ -1,0 +1,51 @@
+module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+  ],
+  theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      'white': '#ffffff',
+      'primary': {
+        200: '#F6FAFF',
+        300: '#DFEDFF',
+        400: '#A0C9FE',
+        500: '#88BCFD',
+        600: '#71AEFD',
+        700: '#59A0FC',
+        800: '#3F8AFB',
+        900: '#1278FB',
+      },
+      secondary: {
+        100: '#F7F0E7',
+        200: '#F7E6D0',
+        300: '#F8DCB8',
+        400: '#F8D2A0',
+        500: '#F9C788',
+        600: '#F9BD71',
+        700: '#F9B359',
+        800: '#FAA941',
+        900: '#FB9512',
+      },
+      blue: '#001344',
+    },
+    fontFamily: {
+      sans: ['Poppins', 'sans-serif'],
+      serif: ['Poppins', 'serif'],
+      mono: ['Poppins', 'monospace'],
+      heading: ['Poppins', 'sans-serif'],
+    },
+    screens: {
+      'tablet': { max: '800px' },
+      'sm': {max: '640px'},
+      'md': '801px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
+    extend: {},
+  },
+  plugins: [],
+}
