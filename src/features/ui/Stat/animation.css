@@ -1,25 +1,27 @@
 @keyframes background-stat-primary-color-anim {
-    from {
-      background-color: #F6FAFF;
-    }
-    to {
-      background-color: #DFEDFF;
-    }
+  from {
+    background-color: #f6faff;
   }
 
-  .primary-stat-color-animate {
-    animation: background-stat-primary-color-anim 1s linear infinite alternate;
+  to {
+    background-color: #dfedff;
   }
-
-@keyframes background-stat-secondary-color-anim {
-    from {
-    background-color: #F7E6D0;
-    }
-    to {
-    background-color:  #F8DCB8
-    }
 }
 
-    .secondary-stat-color-animate {
-        animation: background-stat-secondary-color-anim 1s linear infinite alternate;
-    }
+.primary-stat-color-animate {
+  animation: background-stat-primary-color-anim 1s linear infinite alternate;
+}
+
+@keyframes background-stat-secondary-color-anim {
+  from {
+    background-color: #f7e6d0;
+  }
+
+  to {
+    background-color: #f8dcb8;
+  }
+}
+
+.secondary-stat-color-animate {
+  animation: background-stat-secondary-color-anim 1s linear infinite alternate;
+}

@@ -1,29 +1,31 @@
 @keyframes background-primary-color-anim {
-    from {
-      background-color: #1278FB;
-      color: #F6FAFF;
-    }
-    to {
-      background-color: #F6FAFF;
-        color: #1278FB;
-    }
+  from {
+    background-color: #1278fb;
+    color: #f6faff;
   }
 
-  .primary-color-animate {
-    animation: background-primary-color-anim 1s linear infinite alternate;
+  to {
+    background-color: #f6faff;
+    color: #1278fb;
   }
-
-@keyframes background-secondary-color-anim {
-    from {
-    background-color: #FB9512;
-    color: #ffffff;
-    }
-    to {
-    background-color:  #ffffff;
-        color: #FB9512;
-    }
 }
 
-    .secondary-color-animate {
-        animation: background-secondary-color-anim 1s linear infinite alternate;
-    }
+.primary-color-animate {
+  animation: background-primary-color-anim 1s linear infinite alternate;
+}
+
+@keyframes background-secondary-color-anim {
+  from {
+    background-color: #fb9512;
+    color: #fff;
+  }
+
+  to {
+    background-color: #fff;
+    color: #fb9512;
+  }
+}
+
+.secondary-color-animate {
+  animation: background-secondary-color-anim 1s linear infinite alternate;
+}

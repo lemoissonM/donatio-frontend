@@ -3,6 +3,7 @@
     transform: matrix(0.5, 0, 0, 0.5, 30, 30);
     opacity: 0.8;
   }
+
   to {
     transform: matrix(1, 0, 0, 1, 0, 0);
     opacity: 0.5;
@@ -10,22 +11,22 @@
 }
 
 @keyframes grow-reverse {
-    from {
-      transform: matrix(1, 0, 0, 1, 0, 0);
-      opacity: 0.5;
-    }
-    to {
-      transform: matrix(0.5, 0, 0, 0.5, 30, 30);
-      opacity: 0.7;
-    }
+  from {
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    opacity: 0.5;
   }
 
+  to {
+    transform: matrix(0.5, 0, 0, 0.5, 30, 30);
+    opacity: 0.7;
+  }
+}
+
 #circle1 {
-    animation: grow 2s linear infinite alternate;
+  animation: grow 2s linear infinite alternate;
 }
 
 #circle2 {
-    transform: matrix(0.5, 0, 0, 0.5, 25, 25);
-    animation: grow-reverse 2s linear infinite alternate;
+  transform: matrix(0.5, 0, 0, 0.5, 25, 25);
+  animation: grow-reverse 2s linear infinite alternate;
 }
-
