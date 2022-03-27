@@ -42,8 +42,8 @@ export const deleteApi = async (url: string) => {
   })
 }
 
-const cloudName = process.env.VITE_CLOUDINARY_CLOUD_NAME || "";
-const cloudPreset = process.env.VITE_CLOUDINARY_CLOUD_PRESET || "";
+const cloudName = process.env.CLOUDINARY_CLOUD_NAME || "";
+const cloudPreset = process.env.CLOUDINARY_CLOUD_PRESET || "";
 const cloudUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload` || "";
 
 export const uploadImage = (image: any) => {
