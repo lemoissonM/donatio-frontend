@@ -8,7 +8,6 @@ const createApi = (url: string): {
   return new Proxy({}, {
     get(target, key: string) {
       return async function(id = "") {
-        await new Promise(resolve => setTimeout(resolve, 5000));
         const response = await fetch(`${url}/${key}/${id}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -26,7 +25,6 @@ const createApi = (url: string): {
 export const api = createApi(backendUrl)
 
 export const postApi = async (url: string, body: any) => {
-  // await new Promise(resolve => setTimeout(resolve, 5000));
   return axios.post(`${backendUrl}/${url}`,body, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -36,7 +34,6 @@ export const postApi = async (url: string, body: any) => {
 }
 
 export const deleteApi = async (url: string) => {
-  await new Promise(resolve => setTimeout(resolve, 5000));
   return axios.delete(`${backendUrl}/${url}`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`,
