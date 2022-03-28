@@ -1,8 +1,9 @@
 import { useMutation, useQueryClient } from "react-query";
 import { postApi, uploadImage } from "@utils/api";
 import { AxiosError, AxiosResponse } from "axios";
+import makeToast, { defaultOptions } from "@utils/toast";
 
-export const  useCreateNeed = () => {
+export const  useCreateNeed = (resetForm: any) => {
     const queryClient = useQueryClient();  
     const saveItem = async (data: any) => {
       const img = await uploadImage(data.imgUrl[0]);
@@ -12,12 +13,17 @@ export const  useCreateNeed = () => {
     {
       onSuccess: (result: AxiosResponse) => {
           if(result.status === 201) {
+            resetForm();
             queryClient.invalidateQueries(["savedNeeds"]);
+            makeToast.success('Need added successfully !', defaultOptions)
             return result.data
           } 
       },
       onError: (error: AxiosError) => {
-        console.log(error?.response);
+        if(error) {
+          makeToast.error('Creating need failed !', defaultOptions)
+          console.log(error?.response);
+        }
       }
     })
 }

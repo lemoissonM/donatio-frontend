@@ -11,7 +11,7 @@ const DonationItem: React.FC<PropTypes> = (props) => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex flex-row bg-primary-200 cursor-pointer rounded-[15px] p-3 sm:mb-6 tablet:w-[250px]" >
+        <div className="flex flex-row bg-primary-200 cursor-pointer rounded-[15px] p-3 sm:mb-6 tablet:w-full" >
         <img src={donation?.need?.imgUrl} className="w-[30px] h-[30px] rounded-[5px]"/>
         <div className="pt-1 flex-grow px-4">
             <h1 className="text-blue text-base tablet:text-sm font-semibold ">{donation?.need?.title}</h1>

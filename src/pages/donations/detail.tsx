@@ -6,7 +6,7 @@ const DonationDetailPage: React.FC = () => {
     const params = useParams();
     return (
         <div>
-            <h1 className="mt-7 text-lg font-bold">DONATION DETAIL</h1>
+            <h1 className="md:mt-7 sm:mt-2 text-lg font-bold">DONATION DETAIL</h1>
             <DonationDetail id={params.id || ''} />
         </div>
     )

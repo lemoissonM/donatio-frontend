@@ -24,7 +24,7 @@ const ClientLayout: React.FC = (props) => {
               <AsideActions />
             </div>}
           </div>
-          { showDonationForm && <DonationForm /> }
+          { showDonationForm && <DonationForm close={()=>{setShowDonationForm(false)}} /> }
           { props.children }
         </main>
         <Aside show={showAsideSm}/>

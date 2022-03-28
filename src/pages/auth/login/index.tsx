@@ -25,8 +25,8 @@ const Login: React.FC = () => {
 
 
     return (
-        <div className="w-full h-full flex flex-col justify-center items-center md:px-5">
-            <div className="flex md:flex-row tablet:flex-col tablet:items-center tablet:w-full md:justify-between sm:p-10">
+        <div className="w-full h-full flex flex-col justify-center items-center md:px-5 sm:px-2">
+            <div className="flex md:flex-row tablet:flex-col tablet:items-center tablet:w-full md:justify-between sm:p-2">
             <h1 className="text-blue text-xl tablet:hidden md:hidden font-semibold text-center mb-5 mt-5">Donatio</h1>
                 <div className="mr-10 h-full tablet:hidden">
                     <h1 className="text-blue text-xl font-semibold mb-16 mt-5">Donatio</h1>

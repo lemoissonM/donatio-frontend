@@ -10,9 +10,11 @@ import { useParams } from "react-router-dom";
 const NeedDetailPage: React.FC = (props) =>  {
   const params = useParams();
   return (
-    <div>
-      <h1 className="mt-7 text-lg font-bold">EVENT DETAIL</h1>
-      <NeedDetail id={params.id || ''} />
+    <div className="flex flex-col">
+      <h1 className="md:mt-7 sm:mt-2 text-lg font-bold">EVENT DETAIL</h1>
+      <div className="flex-grow">
+        <NeedDetail id={params.id || ''} showFullDescription />
+      </div>
     </div>
   )
 }

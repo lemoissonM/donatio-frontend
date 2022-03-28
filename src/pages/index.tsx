@@ -10,6 +10,8 @@ import { useUserProfile } from "@features/users/hooks/get-profile.hook";
 import { User } from "@features/users/types/user-type";
 import { UserContext } from "@features/ui/layout/hooks/user.context";
 import { Loading } from "@features/ui/Loader";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home: React.FC = () => {
   const authenticated = localStorage.getItem('token');
@@ -17,6 +19,17 @@ const Home: React.FC = () => {
   if(!authenticated) {
     return (
       <div className="w-full h-screen	flex justify-between flex-row sm:flex-col">
+        <ToastContainer 
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         <AuthLayout >
           <AuthRoutes />
         </AuthLayout>
@@ -26,7 +39,18 @@ const Home: React.FC = () => {
     const profile = useUserProfile();
     if(profile.data) return(
       <UserContext.Provider value={profile.data || {} as User}>
-      <div className="w-full h-screen	flex justify-between flex-row sm:flex-col">
+        <div className="w-full h-screen	flex justify-between flex-row sm:flex-col">
+        <ToastContainer 
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         {(authenticated && profile?.data?.role !== "admin") && (
           <ClientLayout>
             <UserRoutes />

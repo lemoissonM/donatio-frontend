@@ -16,9 +16,9 @@ const Stat: React.FC = () => {
           </div>
           <div className={`bg-primary-200 p-4 mt-12 ${profileLoading?.isFetching ? 'primary-stat-color-animate': ''} rounded-[15px]`}>
             <div className="flex lg:flex-row lg:justify-between md:flex-col">
-              <p className="font-bold text-sm mt-1 text-blue">Month of   </p> 
+              <p className="font-bold text-sm mt-1 text-blue mr-3">Month of   </p> 
               <div>
-                <button id="dropdownButton" data-dropdown-toggle="dropdown" className="text-blue bg-primary-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300  rounded-lg text-xs px-4 py-1 text-center inline-flex items-center  shadow-none" type="button">April <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                <button id="dropdownButton" data-dropdown-toggle="dropdown" className="text-blue bg-primary-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 ml-auto  rounded-lg text-xs px-4 py-1 text-center inline-flex items-center  shadow-none" type="button">April <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
 
                 <div id="dropdown" className="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                     <ul className="py-1" aria-labelledby="dropdownButton">

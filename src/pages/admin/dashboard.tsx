@@ -46,7 +46,7 @@ const DashboardPage: React.FC = () => {
                 <p className="font-bold text-base  text-primary-900 mb-3">Top contributors  </p>
                 {topContributors.data?.map((user: any) => <div className="flex flex-row mt-5">
                     <img src={user['users_imgUrl']} alt="volcano" className="w-[20px] h-[20px] rounded-full mr-4" />
-                    <p className="text-blue text-sm font-semibold">{user['users_firstName']} {user['users_lastName']}</p>
+                    <p className="text-blue text-sm font-semibold">{`${user['users_firstName']} ${user['users_lastName']}`}</p>
                     <p className="text-secondary-900 font-semibold text-sm ml-auto">$ {user['sum']}</p>
                 </div>)}
 

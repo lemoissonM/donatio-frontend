@@ -32,7 +32,7 @@ const Menu: React.FC<PropTypes> = (props) => {
 
     return (
         <UserContext.Consumer>
-            {user => <aside className={`bg-primary-200 lg:w-[250px] md:w-[220px]  lg:m-10 md:my-10 md:mx-5 tablet:mx-4 rounded-[15px] h-5/6 z-30 sm:w-4/5 transition-transform ease-linear delay-300 sm:fixed ${!props.show ? "sm:-translate-x-full": "sm:translate-x-0"}`}>
+            {user => <aside className={`bg-primary-200 lg:w-[250px] md:w-[220px]  lg:m-10 md:my-10 md:mx-5 tablet:mx-4 rounded-[15px] h-5/6 z-30 sm:w-4/5 transition-transform ease-linear delay-300 sm:fixed ${!props.show ? "sm:-translate-x-[110%]": "sm:translate-x-0"}`}>
                 <ul className="list-reset p-6 pt-10">
                     {(user.role === 'admin' ? menusAdmin : menus).map((menu, index) => (
                         <MenuItem {...menu} index={index} active={menu.link === path} closeMenu={props?.closeMenu}/>

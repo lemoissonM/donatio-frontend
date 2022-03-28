@@ -19,7 +19,7 @@ const Signup: React.FC = () => {
     const navigate = useNavigate();
     const mutation = useSignup(navigate);
     const onSubmit: SubmitHandler<IFormInput> = data => {
-        mutation.mutate({ password: data.password, email: data.email, firstName: data.fullname.split(' '), lastName: data.fullname.split(' ')[1], passwordConfirmation: data.password });
+        mutation.mutate({ password: data.password, email: data.email, firstName: data.fullname.split(' ')[0], lastName: data.fullname.split(' ')[1], passwordConfirmation: data.password });
     };
 
     const errorMessage = mutation.error?.isAxiosError ? mutation?.error?.response?.data?.message?.[0]  :  'An error happened';

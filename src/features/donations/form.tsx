@@ -11,7 +11,7 @@ enum DonationTypes {
     individual = 'individual'
 }
 interface IFormInput {
-    needId: string,
+    needId?: string,
     totalDonated: number,
     donationType: DonationTypes,
 }
@@ -48,10 +48,11 @@ const DonationForm: React.FC<DonationFormType> = (props) => {
             {isGroup && <Select register={register} name="groupId" label="Groupe" placeholder="Select the group" options={groups?.map(g => {
                 return {value: g.id, label: g.name}
             }) || []} />}
-            <input {...register('needId')} name="needId" hidden  value={props.needId} />
+            {props.needId && <input {...register('needId')} name="needId" hidden  value={props.needId} />}
            </div>
-           <div className="md:grid md:grid-cols-2 gap-3">
-                <button className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 md:mx-5 tablet:ml-5 sm:ml-1 tablet:w-[40%] sm:w-[97%] border-secondary-900   border-[1px]  text-secondary-900 rounded-[15px] mt-[20px] h-[40px] hover:bg-secondary-900 hover:border-2 hover:text-white" onClick={()=>{
+           <div className="grid grid-cols-2 gap-3">
+                <button className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 md:mx-5 tablet:ml-5 sm:ml-1 tablet:w-[40%] sm:w-[97%] border-secondary-900   border-[1px]  text-secondary-900 rounded-[15px] mt-[20px] h-[40px] hover:bg-secondary-900 hover:border-2 hover:text-white" onClick={(e)=>{
+                    e.preventDefault();
                     props?.close?.()
                 }}>Cancel</button>
                 <Button isSubmit isLoading={mutation.isLoading} backgroundColor="primary-900" label={mutation.isLoading ? "Submitting" : "Submit"} height="h-[40px] mt-[20px] md:mx-5" textColor="white" />

@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "react-query";
 import { postApi } from "@utils/api";
 import { AxiosError, AxiosResponse } from "axios";
+import makeToast, { defaultOptions } from "@utils/toast";
 
 export const  useDonationForm = (reset: any) => {
     const queryClient = useQueryClient();
@@ -13,10 +14,12 @@ export const  useDonationForm = (reset: any) => {
           console.log(result);
           if(result.status === 201) {
             reset();
+            makeToast.success('Thank you for your donation !', defaultOptions)
             queryClient.invalidateQueries(["user-profile"]);
           } 
       },
       onError: (error: AxiosError) => {
+        makeToast.error('Failed to save your donation', defaultOptions)
         console.log(error?.response);
       }
     })
