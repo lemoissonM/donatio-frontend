@@ -25,7 +25,7 @@ const Aside: React.FC<PropTypes> = (props) => {
     >
       <XIcon
         width={25}
-        className="text-primary-900 ml-auto mb-5"
+        className="text-primary-900 ml-auto md:hidden mb-5"
         onClick={() => {
           props?.close();
         }}
