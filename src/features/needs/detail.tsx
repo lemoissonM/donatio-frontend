@@ -4,6 +4,7 @@ import DonateForm from '@features/donations/form';
 import { useState } from 'react';
 import { useDetailNeed } from './hooks/get-detail.hook';
 import { LoadingIcon } from '@features/ui/Loader/Icon';
+import { Helmet } from 'react-helmet';
 
 type PropTypes = {
   id?: string;
@@ -30,6 +31,13 @@ const NeedDetail: React.FC<PropTypes> = (props) => {
           showDonation ? 'p-0' : ''
         }`}
       >
+        <Helmet>
+          <title>{need?.title}</title>
+          <meta name="description" content={need?.description} />
+          <meta property="og:title" content={need?.title} />
+          <meta property="og:description" content={need?.description} />
+          <meta property="og:image" content={need?.imgUrl} />
+        </Helmet>
         {need && (
           <div
             className={`bg-primary-200  h-fit w-full rounded-[15px] sm:rounded-[10px] ${
