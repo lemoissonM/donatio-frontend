@@ -14,7 +14,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Home: React.FC = () => {
   const authenticated = localStorage.getItem('token');
-  const profile = useUserProfile();
 
   if (!authenticated) {
     return (
@@ -36,6 +35,9 @@ const Home: React.FC = () => {
       </div>
     );
   }
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const profile = useUserProfile();
+
   if (profile.data) {
     return (
       <UserContext.Provider value={profile.data || ({} as User)}>
