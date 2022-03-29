@@ -1,6 +1,6 @@
-import { Need } from "./need";
+import { Need } from './need';
 
 export type SavedNeed = {
-    id: string;
-    need: Need;
-}
+  id: string;
+  need: Need;
+};

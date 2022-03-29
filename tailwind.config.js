@@ -1,14 +1,11 @@
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      'white': '#ffffff',
-      'primary': {
+      white: '#ffffff',
+      primary: {
         200: '#F6FAFF',
         300: '#DFEDFF',
         400: '#A0C9FE',
@@ -38,14 +35,14 @@ module.exports = {
       heading: ['Poppins', 'sans-serif'],
     },
     screens: {
-      'tablet': { max: '800px' },
-      'sm': {max: '640px'},
-      'md': '801px',
-      'lg': '1024px',
-      'xl': '1280px',
+      tablet: { max: '800px' },
+      sm: { max: '640px' },
+      md: '801px',
+      lg: '1024px',
+      xl: '1280px',
       '2xl': '1536px',
     },
     extend: {},
   },
   plugins: [],
-}
+};

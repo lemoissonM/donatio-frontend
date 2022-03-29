@@ -1,8 +1,8 @@
 export const logout = () => {
-    localStorage.setItem('token', '');
-    window.location.assign('/')
-}
+  localStorage.setItem('token', '');
+  window.location.assign('/');
+};
 
 export const isAuth = () => {
-    return localStorage.getItem('token');
-}
+  return localStorage.getItem('token');
+};

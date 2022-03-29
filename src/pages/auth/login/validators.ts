@@ -1,4 +1,4 @@
 export default {
-    email: { required: true },
-    password: { required: true },
-}
+  email: { required: true },
+  password: { required: true },
+};

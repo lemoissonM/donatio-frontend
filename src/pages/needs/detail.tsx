@@ -1,13 +1,8 @@
-import React from "react";
-import image from '../../assets/images/volcano.jpeg';
-import { Need } from "@features/needs/types/need";
-import DonateForm from "@features/donations/form"
-import { useState } from "react";
-import NeedDetail from "@features/needs/detail";
-import { useParams } from "react-router-dom";
+import React from 'react';
+import NeedDetail from '@features/needs/detail';
+import { useParams } from 'react-router-dom';
 
-
-const NeedDetailPage: React.FC = (props) =>  {
+const NeedDetailPage: React.FC = () => {
   const params = useParams();
   return (
     <div className="flex flex-col">
@@ -16,7 +11,7 @@ const NeedDetailPage: React.FC = (props) =>  {
         <NeedDetail id={params.id || ''} showFullDescription />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default NeedDetailPage;

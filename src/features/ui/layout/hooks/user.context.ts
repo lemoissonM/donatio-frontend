@@ -1,4 +1,4 @@
-import { User } from "@features/users/types/user-type"
-import React from "react"
+import { User } from '@features/users/types/user-type';
+import React from 'react';
 
-export const UserContext = React.createContext({} as User)
+export const UserContext = React.createContext({} as User);

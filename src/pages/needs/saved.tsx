@@ -1,8 +1,8 @@
-import React from "react";
-import SavedNeedList from "@features/needs/saved-list";
+import React from 'react';
+import SavedNeedList from '@features/needs/saved-list';
 
 const SavedNeedListPage: React.FC = () => {
-    return <SavedNeedList />
+  return <SavedNeedList />;
 };
 
 export default SavedNeedListPage;

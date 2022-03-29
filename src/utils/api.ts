@@ -1,50 +1,55 @@
-import axios from "axios";
+import axios from 'axios';
 
-const backendUrl = process.env.API_URL || "http://localhost:3000";
+const backendUrl = process.env.API_URL || 'http://localhost:3000';
 
-const createApi = (url: string): {
-    [key: string]: (id?: string) => Promise<any>;
+const createApi = (
+  url: string,
+): {
+  [key: string]: (id?: string) => Promise<any>;
 } => {
-  return new Proxy({}, {
-    get(target, key: string) {
-      return async function(id = "") {
-        const response = await fetch(`${url}/${key}/${id}`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
+  return new Proxy(
+    {},
+    {
+      get(target, key: string) {
+        return async function (id = '') {
+          const response = await fetch(`${url}/${key}/${id}`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          });
+          if (response.ok) {
+            return response.json();
           }
-        })
-        if (response.ok) {
-          return response.json();
-        }
-        return Promise.resolve({ error: "Malformed Request" })
-      }
-    }
-  })
-}
+          return Promise.resolve({ error: 'Malformed Request' });
+        };
+      },
+    },
+  );
+};
 
-export const api = createApi(backendUrl)
+export const api = createApi(backendUrl);
 
 export const postApi = async (url: string, body: any) => {
-  return axios.post(`${backendUrl}/${url}`,body, {
+  return axios.post(`${backendUrl}/${url}`, body, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`,
       'content-type': 'application/json',
-    }
-  })
-}
+    },
+  });
+};
 
 export const deleteApi = async (url: string) => {
   return axios.delete(`${backendUrl}/${url}`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`,
       'content-type': 'application/json',
-    }
-  })
-}
+    },
+  });
+};
 
-const cloudName = process.env.CLOUDINARY_CLOUD_NAME || "";
-const cloudPreset = process.env.CLOUDINARY_CLOUD_PRESET || "";
-const cloudUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload` || "";
+const cloudName = process.env.CLOUDINARY_CLOUD_NAME || '';
+const cloudPreset = process.env.CLOUDINARY_CLOUD_PRESET || '';
+const cloudUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload` || '';
 
 export const uploadImage = (image: any) => {
   const formData = new FormData();
@@ -53,4 +58,4 @@ export const uploadImage = (image: any) => {
   formData.append('cloud_name', cloudName);
 
   return axios.post(cloudUrl, formData);
-}
+};
