@@ -2,6 +2,7 @@ import DashboardChart from '@features/dashboard/chart';
 import { useDonations } from '@features/donations/hooks/get-list-hooks';
 import DonationItem from '@features/donations/item';
 import { LoadingIcon } from '@features/ui/Loader/Icon';
+import { UserCircleIcon } from '@heroicons/react/outline';
 import React from 'react';
 import { useDonationCount } from './hooks/get-donation-count.hook';
 import { useTopContributors } from './hooks/get-top-contributors.hook';
@@ -58,11 +59,15 @@ const DashboardPage: React.FC = () => {
                 <p className="font-bold text-base  text-primary-900 mb-3">Top contributors </p>
                 {topContributors.data?.map((user: any) => (
                   <div className="flex flex-row mt-5" key={user['users_id']}>
-                    <img
-                      src={user['users_imgUrl']}
-                      alt="volcano"
-                      className="w-[20px] h-[20px] rounded-full mr-4"
-                    />
+                    {user['users_imgUrl'] ? (
+                      <img
+                        src={user['users_imgUrl']}
+                        alt="volcano"
+                        className="w-[20px] h-[20px] rounded-full mr-4"
+                      />
+                    ) : (
+                      <UserCircleIcon width={100} className="text-primary-900 mx-auto" />
+                    )}
                     <p className="text-blue text-sm font-semibold">{`${user['users_firstName']} ${user['users_lastName']}`}</p>
                     <p className="text-secondary-900 font-semibold text-sm ml-auto">
                       $ {user['sum']}
