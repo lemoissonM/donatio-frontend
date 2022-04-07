@@ -2,8 +2,10 @@ import React from 'react';
 import { UserContext } from '@features/ui/layout/hooks/user.context';
 import { CurrencyDollarIcon, UserCircleIcon } from '@heroicons/react/outline';
 import ProfileData from './profile-data';
+import ProfileForm from './edit-profile-form';
 
 const Profile: React.FC = () => {
+  const [showEditForm, setShowEditForm] = React.useState(false);
   return (
     <UserContext.Consumer>
       {(data) => (
@@ -40,7 +42,14 @@ const Profile: React.FC = () => {
               </p>
             </div>
           </div>
-          <ProfileData data={data} />
+          <ProfileData data={data} showForm={setShowEditForm} />
+          <ProfileForm
+            isShowing={showEditForm}
+            close={() => {
+              setShowEditForm(false);
+            }}
+            user={data}
+          />
         </div>
       )}
     </UserContext.Consumer>

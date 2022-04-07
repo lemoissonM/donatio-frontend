@@ -15,10 +15,22 @@ type Props = {
   validator?: any;
   type?: string;
   options: IOption[];
+  defaultValue?: string;
 };
 
 const Select: React.FC<Props> = (props: Props) => {
-  const { label, placeholder, style, icon, register, name, validator, type, options } = props;
+  const {
+    label,
+    placeholder,
+    style,
+    icon,
+    register,
+    name,
+    validator,
+    type,
+    options,
+    defaultValue,
+  } = props;
   return (
     <div className={`px-5 sm:px-2 sm:mb-5 ${style}`}>
       <div className="text-blue sm:text-sm flex flex-row">
@@ -31,6 +43,7 @@ const Select: React.FC<Props> = (props: Props) => {
           {...register(name, validator)}
           className="text-sm px-4 py-2 bg-transparent sm:p-3 w-full mt-1 "
           placeholder={placeholder}
+          defaultValue={defaultValue}
         >
           {options.map((o) => (
             <option className="text-blue bg-primary-300" value={o.value} key={o.value}>

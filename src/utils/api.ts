@@ -38,6 +38,16 @@ export const postApi = async (url: string, body: any) => {
   });
 };
 
+export const patchApi = async (url: string, body: any) => {
+  console.log(body);
+  return axios.patch(`${backendUrl}/${url}`, body, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+      'content-type': 'application/json',
+    },
+  });
+};
+
 export const deleteApi = async (url: string) => {
   return axios.delete(`${backendUrl}/${url}`, {
     headers: {
