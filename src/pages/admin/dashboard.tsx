@@ -66,7 +66,10 @@ const DashboardPage: React.FC = () => {
                         className="w-[20px] h-[20px] rounded-full mr-4"
                       />
                     ) : (
-                      <UserCircleIcon width={20} className="text-primary-900 mx-auto" />
+                      <UserCircleIcon
+                        width={20}
+                        className="text-primary-900 w-[20px] h-[20px] rounded-full mr-4"
+                      />
                     )}
                     <p className="text-blue text-sm font-semibold">{`${user['users_firstName']} ${user['users_lastName']}`}</p>
                     <p className="text-secondary-900 font-semibold text-sm ml-auto">
