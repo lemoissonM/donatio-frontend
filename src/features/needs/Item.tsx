@@ -21,7 +21,7 @@ const NeedItem: React.FC<PropTypes> = (props) => {
   const navigate = useNavigate();
   return (
     <div
-      className={` bg-secondary-100 transition-all ease-in delay-150 cursor-pointer rounded-[15px] mb-10`}
+      className={` bg-secondary-100 transition-all ease-in delay-150 cursor-pointer rounded-[15px] md:mb-10 tablet:mb-5`}
     >
       <div
         className={`bg-primary-200 w-full rounded-[15px] sm:rounded-[10px] ${
@@ -76,7 +76,15 @@ const NeedItem: React.FC<PropTypes> = (props) => {
               backgroundColor={!saved ? 'secondary-900' : '[#FB1278]'}
               width="w-[45%]"
               type="secondary"
-              label={saved ? 'Delete' : 'Donate later'}
+              label={
+                saved
+                  ? mutation.isLoading
+                    ? 'Deleting '
+                    : 'Delete'
+                  : mutation.isLoading
+                  ? 'Saving '
+                  : 'Donate later'
+              }
             />
             <button
               className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 bg-primary-900 text-white rounded-[15px] w-[45%] xl:w-[200px] h-[40px] hover:border-primary-900 hover:border-2 hover:bg-primary-700"

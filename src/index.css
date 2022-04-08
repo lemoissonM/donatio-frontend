@@ -18,6 +18,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: hidden;
 }
 
 code {
@@ -28,4 +29,9 @@ code {
     Consolas,
     "Courier New",
     monospace;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 1px;
 }

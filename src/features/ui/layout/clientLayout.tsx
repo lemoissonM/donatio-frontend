@@ -27,12 +27,12 @@ const ClientLayout: React.FC = (props) => {
       >
         <div className="flex flex-row">
           <button
-            className="transition ease-in-out delay-150 bg-primary-900 sm:hidden text-white rounded-[15px] w-[150px] h-[40px] hover:-translate-y-1 hover:scale-110 hover:border-primary-900 py-2 hover:bg-primary-700"
+            className="transition ease-in-out delay-150 bg-primary-900 sm:hidden text-white rounded-[15px] px-4 h-[40px] hover:-translate-y-1 hover:scale-110 hover:border-primary-900 py-2 hover:bg-primary-700"
             onClick={() => {
               setShowDonationForm(!showDonationForm);
             }}
           >
-            Donate
+            Make general donation
           </button>
           {showAside && (
             <div className="w-[200px] mt-2 ml-auto tablet:hidden">
