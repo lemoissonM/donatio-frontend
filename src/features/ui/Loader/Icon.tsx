@@ -15,7 +15,7 @@ export const LoadingIcon: React.FC<PropTypes> = (props) => {
 
   return (
     <svg
-      width={height}
+      width={height === 60 ? 120 : height}
       height={height}
       viewBox="0 0 120 120"
       fill="none"
