@@ -22,7 +22,7 @@ export const getFormatedProfile = (user: User) => {
     {
       Icon: <GlobeIcon width={20} className="text-primary-900" />,
       title: 'City & state',
-      value: `${user?.city}, ${user?.state}`,
+      value: user.city ? `${user?.city}, ${user?.state}` : '',
     },
     {
       Icon: <GlobeIcon width={20} className="text-primary-900" />,

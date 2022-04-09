@@ -15,7 +15,8 @@ const Stat: React.FC = () => {
   return (
     <UserContext.Consumer>
       {(data) => {
-        const progress = getProgress(data.monthlyObjective, data?.totalSumMonth);
+        let progress = getProgress(data.monthlyObjective, data?.totalSumMonth);
+        if (Number.isNaN(progress)) progress = 0;
         return (
           <div className="mt-10">
             <p className="font-bold text-sm text-blue">Month objective</p>
@@ -24,7 +25,7 @@ const Stat: React.FC = () => {
                 className={`h-[30px] pt-2 bg-primary-400 rounded-full  text-center text-sm text-primary-900 font-bold content-center`}
                 style={{ width: `${progress}%` }}
               >
-                {progress} %
+                {progress > 0 ? `${progress}%` : ''}
               </div>
             </div>
             <div

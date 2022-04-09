@@ -103,7 +103,7 @@ const ProfileForm: React.FC<ProfileFormType> = (props) => {
               label="Monthly donation objective"
               placeholder="My monthly donation objective"
               type="number"
-              defaultValue={props.user.monthlyObjective?.toString()}
+              defaultValue={props.user?.monthlyObjective?.toString()}
             />
             <TextArea
               register={register}
