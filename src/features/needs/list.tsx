@@ -15,7 +15,7 @@ const NeedList: React.FC<propsType> = (props: propsType) => {
   const [showForm, setShowForm] = useState(false);
 
   return (
-    <div className="w-full md:mt-10 tablet:mt-3 overflow-y-scroll flex flex-col h-screen md:pb-20 tablet:pb-60 z-30">
+    <div className="w-full md:mt-10 tablet:mt-3 overflow-y-scroll flex flex-col h-screen z-30">
       {props.isAdmin ? (
         <Button
           onClick={() => {
@@ -39,7 +39,7 @@ const NeedList: React.FC<propsType> = (props: propsType) => {
           <p className="text-blue">Fetching data ...</p>
         </div>
       )}
-      <div className="h-screen overflow-y-scroll flex flex-col ">
+      <div className="h-screen overflow-y-scroll flex flex-col md:pb-20 tablet:pb-60">
         {data?.map((n) => (
           <NeedItem need={n} key={n.id} />
         ))}
