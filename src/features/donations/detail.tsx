@@ -8,7 +8,7 @@ import DonationProofForm from './donationProofForm';
 
 type PropTypes = {
   id: string;
-  isAdmin: boolean;
+  isAdmin?: boolean;
 };
 
 const DonationDetail: React.FC<PropTypes> = (props) => {
