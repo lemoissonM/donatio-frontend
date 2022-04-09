@@ -2,6 +2,7 @@ import React from 'react';
 import { useDonationDetail } from './hooks/get-detail-hooks';
 import NeedDetail from '@features/needs/detail';
 import { LoadingIcon } from '@features/ui/Loader/Icon';
+import millify from 'millify';
 
 type PropTypes = {
   id: string;
@@ -23,7 +24,7 @@ const DonationDetail: React.FC<PropTypes> = (props) => {
               <span className="text-secondary-900 text-sm ml-auto">1 day</span>{' '}
             </p>
             <p className="lg:text-[30px] md:text-[25px] text-blue font-bold mt-5">
-              + $ {donation.myContribution}
+              + $ {millify(donation.myContribution)}
             </p>
             <p className="text-blue mt-4 text-sm font-semibold">Via airtel money</p>
           </div>

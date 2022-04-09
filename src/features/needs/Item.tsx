@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useSaveItem } from './hooks/save-item.hook';
 import Button from '@features/ui/Button';
 import { useDeleteItem } from './hooks/delete-item.hook';
+import millify from 'millify';
 
 type PropTypes = {
   need: Need;
@@ -64,7 +65,8 @@ const NeedItem: React.FC<PropTypes> = (props) => {
             }}
             className="mt-4 font-bold text-sm text-primary-900 "
           >
-            Total needed : <span className="text-secondary-900"> {need?.totalNeeded} USD</span>
+            Total needed :{' '}
+            <span className="text-secondary-900"> $ {millify(need?.totalNeeded | 0)}</span>
           </p>
           <div className="mt-6 flex flex-row justify-between">
             <Button

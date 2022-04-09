@@ -3,6 +3,7 @@ import { UserContext } from '@features/ui/layout/hooks/user.context';
 import { CurrencyDollarIcon, UserCircleIcon } from '@heroicons/react/outline';
 import ProfileData from './profile-data';
 import ProfileForm from './edit-profile-form';
+import millify from 'millify';
 
 const Profile: React.FC = () => {
   const [showEditForm, setShowEditForm] = React.useState(false);
@@ -28,7 +29,7 @@ const Profile: React.FC = () => {
                 <CurrencyDollarIcon width={25} />{' '}
                 <span className="text-white text-xs text-center ml-[5px] mt-[3px] px-[20px] bg-secondary-900 p-[5px] rounded-[20px] ">
                   {' '}
-                  $ {data?.totalSumMonth}{' '}
+                  $ {millify(data?.totalSumMonth || 0)}{' '}
                 </span>
               </p>
 
@@ -37,7 +38,7 @@ const Profile: React.FC = () => {
                 <CurrencyDollarIcon width={25} />{' '}
                 <span className="text-white text-xs text-center ml-[5px] mt-[3px] px-[20px] bg-secondary-900 p-[5px] rounded-[20px] ">
                   {' '}
-                  $ {data?.totalSum}{' '}
+                  $ {millify(data?.totalSum || 0)}{' '}
                 </span>
               </p>
             </div>

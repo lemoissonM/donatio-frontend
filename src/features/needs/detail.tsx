@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useDetailNeed } from './hooks/get-detail.hook';
 import { LoadingIcon } from '@features/ui/Loader/Icon';
 import { Helmet } from 'react-helmet';
+import millify from 'millify';
 
 type PropTypes = {
   id?: string;
@@ -81,7 +82,8 @@ const NeedDetail: React.FC<PropTypes> = (props) => {
               )}
 
               <p className="mt-4 font-bold text-base text-primary-900 ">
-                Total needed : <span className="text-secondary-900"> {need?.totalNeeded} USD</span>
+                Total needed :{' '}
+                <span className="text-secondary-900"> {millify(need?.totalNeeded | 0)} USD</span>
               </p>
 
               {showButton && (

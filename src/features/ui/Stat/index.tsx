@@ -1,3 +1,4 @@
+import millify from 'millify';
 import React from 'react';
 import { useQueryClient } from 'react-query';
 import { UserContext } from '../layout/hooks/user.context';
@@ -77,7 +78,7 @@ const Stat: React.FC = () => {
                 </div>
               </div>
               <p className="lg:text-[30px] md:text-[25px] text-primary-900 font-semibold mt-5">
-                + $ {data?.totalSumMonth}
+                + $ {millify(data?.totalSumMonth | 0)}
               </p>
             </div>
             <div
@@ -87,7 +88,7 @@ const Stat: React.FC = () => {
             >
               <p className="font-bold text-sm  text-blue">Total contribution </p>
               <p className="lg:text-[30px] md:text-[25px] text-secondary-900 font-semibold mt-5">
-                + $ {data?.totalSum}
+                + $ {millify(data?.totalSum | 0)}
               </p>
             </div>
           </div>

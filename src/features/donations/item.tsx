@@ -1,6 +1,7 @@
 import React from 'react';
 import { Donation } from './types/donation';
 import { useNavigate } from 'react-router-dom';
+import millify from 'millify';
 
 type PropTypes = {
   donation: Donation;
@@ -19,7 +20,7 @@ const DonationItem: React.FC<PropTypes> = (props) => {
         </h1>
         <div className="flex flex-row justify-between pt-2">
           <p className="text-primary-900 text-sm tablet:text-xs font-semibold mt-[10px]">
-            Amount : $ {donation?.totalDonated}
+            Amount : $ {millify(donation?.totalDonated | 0, { precision: 2 })}
           </p>
           <p className="text-[#8F8F8F] text-sm tablet:text-xs font-medium mt-[10px]">1d ago</p>
         </div>
