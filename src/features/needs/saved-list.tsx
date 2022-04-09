@@ -11,7 +11,7 @@ const SavedNeedList: React.FC<propsType> = () => {
   const { isFetching, data } = useSavedNeeds();
   console.log(data);
   return (
-    <div className="w-full mt-10 sm:mt-3 overflow-y-scroll flex flex-col">
+    <div className="w-full mt-10 sm:mt-3 overflow-y-scroll flex flex-col md:pb-20 tablet:pb-60">
       {isFetching && (
         <div className="mx-auto h-full justify-center items-center content-center">
           <LoadingIcon />

@@ -15,7 +15,7 @@ const NeedList: React.FC<propsType> = (props: propsType) => {
   const [showForm, setShowForm] = useState(false);
 
   return (
-    <div className="w-full md:mt-10 tablet:mt-3 overflow-y-scroll flex flex-col">
+    <div className="w-full md:mt-10 tablet:mt-3 overflow-y-scroll flex flex-col h-screen md:pb-20 tablet:pb-60 z-30">
       {props.isAdmin ? (
         <Button
           onClick={() => {
@@ -23,7 +23,8 @@ const NeedList: React.FC<propsType> = (props: propsType) => {
           }}
           backgroundColor="primary-900"
           label="Create Need"
-          width="w-[200px] mb-5 mt-2 ml-2"
+          width="w-[200px] mb-5 mt-2 ml-0"
+          height="py-4"
         />
       ) : null}
       <NeedForm
@@ -38,9 +39,11 @@ const NeedList: React.FC<propsType> = (props: propsType) => {
           <p className="text-blue">Fetching data ...</p>
         </div>
       )}
-      {data?.map((n) => (
-        <NeedItem need={n} key={n.id} />
-      ))}
+      <div className="h-screen overflow-y-scroll flex flex-col ">
+        {data?.map((n) => (
+          <NeedItem need={n} key={n.id} />
+        ))}
+      </div>
     </div>
   );
 };

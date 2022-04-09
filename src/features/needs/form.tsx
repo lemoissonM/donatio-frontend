@@ -33,7 +33,7 @@ const NeedForm: React.FC<NeedFormType> = (props) => {
 
   return (
     <div
-      className={`fixed inset-0 overflow-y-auto  flex flex-col justify-center transition-all delay-700 ease-linear bg-opacity-50 bg-[#000]  ${
+      className={`fixed z-50 inset-0 overflow-y-auto  flex flex-col justify-center transition-all delay-700 ease-linear bg-opacity-50 bg-[#000]  ${
         !props.isShowing ? 'scale-0 bg-primary-200 z-30' : 'z-30'
       } `}
     >

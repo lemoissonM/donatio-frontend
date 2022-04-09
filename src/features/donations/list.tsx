@@ -6,7 +6,7 @@ import DonationItem from './item';
 const DonationList: React.FC = () => {
   const { data, isFetching } = useDonations();
   return (
-    <div className="w-full mt-10 sm:mt-3 overflow-y-scroll flex flex-col md:grid md:grid-cols-2 md:gap-[30px]">
+    <div className="w-full mt-10 sm:mt-3 overflow-y-scroll flex flex-col md:grid md:grid-cols-2 md:gap-[30px] pb-10">
       {data?.map((donation) => (
         <DonationItem donation={donation} key={donation.id} />
       ))}
