@@ -29,10 +29,6 @@ const createApi = (
 
 export const api = createApi(backendUrl);
 
-function delay(time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
-
 export const postApi = async (url: string, body: any) => {
   return axios.post(`${backendUrl}/${url}`, body, {
     headers: {
