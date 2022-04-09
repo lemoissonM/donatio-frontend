@@ -3,6 +3,7 @@ import { useDonations } from '@features/donations/hooks/get-list-hooks';
 import DonationItem from '@features/donations/item';
 import { LoadingIcon } from '@features/ui/Loader/Icon';
 import { UserCircleIcon } from '@heroicons/react/outline';
+import millify from 'millify';
 import React from 'react';
 import { useDonationCount } from './hooks/get-donation-count.hook';
 import { useTopContributors } from './hooks/get-top-contributors.hook';
@@ -44,14 +45,14 @@ const DashboardPage: React.FC = () => {
               <div className="bg-primary-200 px-4 py-8 rounded-[15px] w-full">
                 <p className="font-bold text-base  text-primary-900">Total raised </p>
                 <p className="lg:text-[40px] md:text-[25px] text-blue font-semibold mt-5">
-                  $ {donationCount?.data?.total.sum}{' '}
+                  $ {millify(donationCount?.data?.total.sum || 0)}{' '}
                 </p>
               </div>
 
               <div className="bg-secondary-100 px-4 py-8 rounded-[15px] w-full mt-10">
                 <p className="font-bold text-base  text-primary-900">Total Used </p>
                 <p className="lg:text-[40px] md:text-[25px] text-blue font-semibold mt-5">
-                  $ {donationCount?.data?.used.sum}
+                  $ {millify(donationCount?.data?.used.sum || 0)}
                 </p>
               </div>
 
@@ -73,7 +74,7 @@ const DashboardPage: React.FC = () => {
                     )}
                     <p className="text-blue text-sm font-semibold">{`${user['users_firstName']} ${user['users_lastName']}`}</p>
                     <p className="text-secondary-900 font-semibold text-sm ml-auto">
-                      $ {user['sum']}
+                      $ {millify(user['sum'])}
                     </p>
                   </div>
                 ))}
