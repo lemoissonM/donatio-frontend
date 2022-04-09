@@ -1,3 +1,11 @@
+export type NeedDonationProof = {
+  id: string;
+  proofUrl: string;
+  proofType: string;
+  proof: string;
+  totalAmount: number;
+};
+
 export type Need = {
   id: string;
   title: string;
@@ -5,4 +13,5 @@ export type Need = {
   totalNeeded: number;
   publisherId: string;
   imgUrl: string;
+  donationProofs: NeedDonationProof[];
 };

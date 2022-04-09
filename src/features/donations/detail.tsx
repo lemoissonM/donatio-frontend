@@ -3,13 +3,18 @@ import { useDonationDetail } from './hooks/get-detail-hooks';
 import NeedDetail from '@features/needs/detail';
 import { LoadingIcon } from '@features/ui/Loader/Icon';
 import millify from 'millify';
+import Button from '@features/ui/Button';
+import DonationProofForm from './donationProofForm';
 
 type PropTypes = {
   id: string;
+  isAdmin: boolean;
 };
 
 const DonationDetail: React.FC<PropTypes> = (props) => {
   const { data: donation, isFetching } = useDonationDetail(props.id);
+  const [showDonationFormProof, setShowDonationFormProof] = React.useState(false);
+  console.log(donation);
 
   if (donation)
     return (
@@ -29,13 +34,42 @@ const DonationDetail: React.FC<PropTypes> = (props) => {
             <p className="text-blue mt-4 text-sm font-semibold">Via airtel money</p>
           </div>
         </div>
-        <h1 className="font-bold text-base mb-[30px] text-primary-900">PROOFS</h1>
-        <div className="flex md:flex-row tablet:flex-col overflow-x-scroll">
-          <div className="bg-secondary-200 md:w-[250px] tablet:mb-7 tablet:w-full  h-[220px] rounded-[15px] pl-[15px] mr-[40px]">
-            <h1 className="text-blue mb-[15px] mt-[10px] text-sm font-bold">Sample</h1>
-            <img src={donation.need.imgUrl} className="w-[215px] h-[160px] rounded-[15px]" />
-          </div>
+        <div className="flex flex-row content-center mb-[30px] items-center">
+          <h1 className="font-bold text-base  text-primary-900">PROOFS</h1>
+          {props.isAdmin && (
+            <Button
+              backgroundColor="primary-900"
+              label="Add"
+              width="h-[30px] px-6 ml-5 text-sm"
+              onClick={() => {
+                setShowDonationFormProof(true);
+              }}
+            />
+          )}
         </div>
+        <div className="flex md:flex-row tablet:flex-col overflow-x-scroll">
+          {donation.need.donationProofs.map((proof) => (
+            <div
+              key={proof.id}
+              className="bg-secondary-200 md:w-[250px] tablet:mb-7 tablet:w-full  h-[240px] rounded-[15px] pl-[15px] mr-[40px]"
+            >
+              <h1 className="text-blue mb-[15px] mt-[10px] text-sm font-bold">{proof.proof}</h1>
+              <img src={proof.proofUrl} className="w-[215px] h-[160px] rounded-[15px]" />
+              <p className="text-blue text-sm mt-2">
+                Amount : <strong>$ {proof.totalAmount}</strong>
+              </p>
+            </div>
+          ))}
+        </div>
+        {props.isAdmin && (
+          <DonationProofForm
+            isShowing={showDonationFormProof}
+            close={() => {
+              setShowDonationFormProof(false);
+            }}
+            needId={donation.needId}
+          />
+        )}
       </div>
     );
   return (

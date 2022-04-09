@@ -14,7 +14,7 @@ const AdminRoutes = () => {
       <Route path="/" element={<DashboardPage />} />
       <Route path="/needs" element={<NeedListPage isAdmin={true} />} />
       <Route path="/needs/detail/:id" element={<NeedDetailPage />} />
-      <Route path="/donations/detail/:id" element={<DonationDetailPage />} />
+      <Route path="/donations/detail/:id" element={<DonationDetailPage isAdmin={true} />} />
       <Route path="/donations" element={<DonationListPage />} />
       <Route path="/groups" element={<UserGroupListPage />} />
       <Route path="/settings" element={<Profile />} />
