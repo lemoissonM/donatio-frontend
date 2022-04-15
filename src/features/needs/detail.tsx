@@ -24,6 +24,9 @@ const NeedDetail: React.FC<PropTypes> = (props) => {
     const { data } = useDetailNeed(props.id);
     need = data;
   }
+  let progress = 0;
+  if (need?.totalNeeded) progress = (need?.totalContribution || 0 / need?.totalNeeded) * 100;
+  if (progress > 100) progress = 100;
   const [showDonation, setShowDonation] = useState(false);
   if (need)
     return (
@@ -72,12 +75,15 @@ const NeedDetail: React.FC<PropTypes> = (props) => {
                   <div className="mr-10 flex-grow h-[30px] bg-primary-300 rounded-full">
                     <div
                       className={`h-[30px] pt-2 bg-primary-600 rounded-full  text-center text-sm text-primary-900 font-bold content-center`}
-                      style={{ width: '50%' }}
+                      style={{ width: `${progress}%` }}
                     >
-                      50 %
+                      {progress} %
                     </div>
                   </div>
-                  <p className="text-primary-900  font-bold">50 k raised</p>
+                  <p className="text-primary-900  font-bold">
+                    {' '}
+                    {millify(need.totalContribution)} raised
+                  </p>
                 </div>
               )}
 

@@ -22,8 +22,13 @@ type DonationFormType = {
   isShowing?: boolean;
 };
 
+const paiementOptions = [
+  { value: 'stripe', label: 'Stripe' },
+  { value: 'ubPay', label: 'UB-PAY (Mobile RDC)' },
+];
+
 const DonationForm: React.FC<DonationFormType> = (props) => {
-  const { register, handleSubmit, reset, watch } = useForm<IFormInput>();
+  const { register, handleSubmit, reset, watch, setValue } = useForm<IFormInput>();
   const resetForm = () => {
     reset();
     props.close?.();
@@ -58,6 +63,7 @@ const DonationForm: React.FC<DonationFormType> = (props) => {
             { value: 'individual', label: 'Individual' },
             { value: 'group', label: 'In a group' },
           ]}
+          setValue={setValue}
         />
         {isGroup && (
           <Select
@@ -70,8 +76,17 @@ const DonationForm: React.FC<DonationFormType> = (props) => {
                 return { value: g.id, label: g.name };
               }) || []
             }
+            setValue={setValue}
           />
         )}
+        <Select
+          register={register}
+          name="paiementWay"
+          label="Paiement Way"
+          placeholder="Select your paiement way"
+          options={paiementOptions}
+          setValue={setValue}
+        />
         {props.needId && (
           <input {...register('needId')} name="needId" hidden value={props.needId} />
         )}
