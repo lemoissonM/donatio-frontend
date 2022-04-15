@@ -82,7 +82,7 @@ const NeedDetail: React.FC<PropTypes> = (props) => {
                   </div>
                   <p className="text-primary-900  font-bold">
                     {' '}
-                    {millify(need.totalContribution)} raised
+                    {millify(need.totalContribution || 0)} raised
                   </p>
                 </div>
               )}

@@ -14,14 +14,13 @@ type PropTypes = {
 const DonationDetail: React.FC<PropTypes> = (props) => {
   const { data: donation, isFetching } = useDonationDetail(props.id);
   const [showDonationFormProof, setShowDonationFormProof] = React.useState(false);
-  console.log(donation);
 
   if (donation)
     return (
       <div>
         <div className="flex md:flex-row tablet:flex-col md:justify-between">
           <div className="md:w-[65%] tablet:w-full tablet:h-auto">
-            <NeedDetail need={donation?.need} showButton={false} showFullDescription={false} />
+            <NeedDetail id={donation.needId} showButton={false} showFullDescription={false} />
           </div>
           <div className="bg-primary-200 p-4 mt-8 md:h-[160px] tablet:mb-7 rounded-[15px] md:w-[30%] tablet:w-full">
             <p className="font-bold text-sm  text-primary-900 w-full flex-row flex">
@@ -29,7 +28,7 @@ const DonationDetail: React.FC<PropTypes> = (props) => {
               <span className="text-secondary-900 text-sm ml-auto">1 day</span>{' '}
             </p>
             <p className="lg:text-[30px] md:text-[25px] text-blue font-bold mt-5">
-              + $ {millify(donation.myContribution)}
+              + $ {millify(donation?.myContribution || 0)}
             </p>
             <p className="text-blue mt-4 text-sm font-semibold">Via airtel money</p>
           </div>
