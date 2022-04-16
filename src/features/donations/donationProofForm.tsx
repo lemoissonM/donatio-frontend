@@ -4,7 +4,6 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import Button from '@features/ui/Button';
 import { useDonationProofForm } from './hooks/create-proof.hook';
 import FileUpload from '@features/ui/FileUpload';
-import Select from '@features/ui/Select';
 
 interface IFormInput {
   needId: string;

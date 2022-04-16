@@ -41,7 +41,7 @@ const Button: React.FC<Props> = (props: Props) => {
         >
           <input
             type="submit"
-            className={` z-10 h-full w-full cursor-pointer font-normal  text-${textColor} font-semibold `}
+            className={`h-full w-full cursor-pointer font-normal  text-${textColor} font-semibold `}
             value={label}
           />
           {isLoading && (

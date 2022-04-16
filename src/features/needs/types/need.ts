@@ -14,4 +14,6 @@ export type Need = {
   publisherId: string;
   imgUrl: string;
   donationProofs: NeedDonationProof[];
+  myContribution: number;
+  totalContribution: number;
 };

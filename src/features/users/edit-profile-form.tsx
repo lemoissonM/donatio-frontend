@@ -16,6 +16,7 @@ interface IFormInput {
   city: string;
   countryName: string;
   role: string;
+  monthlyObjective: number;
 }
 
 type ProfileFormType = {
@@ -39,7 +40,7 @@ const ProfileForm: React.FC<ProfileFormType> = (props) => {
 
   return (
     <div
-      className={`fixed z-50 inset-0 overflow-y-auto  flex flex-col justify-center transition-all delay-700 ease-linear bg-opacity-50 bg-[#000]  ${
+      className={`fixed z-[100] inset-0 overflow-y-auto  flex flex-col justify-center transition-all delay-700 ease-linear bg-opacity-50 bg-[#000]  ${
         !props.isShowing ? 'scale-0 bg-primary-200 z-30' : 'z-30'
       } `}
     >
@@ -99,7 +100,7 @@ const ProfileForm: React.FC<ProfileFormType> = (props) => {
           <div className="mt-0 col-span-2">
             <Input
               register={register}
-              name="monthlyObjectif"
+              name="monthlyObjective"
               label="Monthly donation objective"
               placeholder="My monthly donation objective"
               type="number"
