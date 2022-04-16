@@ -2,6 +2,8 @@
 
 >  Donatio features a list of various people in need, a possibility to donate, and allows people to trace their donations. The idea is to improve transparency and ensure that the donated money serves the right purpose.  
 
+![Donatio](https://user-images.githubusercontent.com/72297212/163676739-660464d0-a4f8-41b4-90ed-112f1525df3e.png)
+
 
 ## Built With
 
@@ -40,12 +42,12 @@ git clone git@github.com:lemoissonM/donatio-frontend.git
 
 ### Deployment
  
-- Deployed to Versel
+- Deployed to Vercel
 
 
 ## Authors
 
-👤 **Author1**
+👤 **Author**
 
 - GitHub: [lemoissonM](https://github.com/lemoissonM)
 - Twitter: [LemoissonMetre](https://twitter.com/LemoissonMetre)
