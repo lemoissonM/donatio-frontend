@@ -11,7 +11,8 @@ import { useSignup } from './hooks/signup.hook';
 interface IFormInput {
   email: string;
   password: string;
-  fullname: string;
+  firstName: string;
+  lastName: string;
 }
 
 const Signup: React.FC = () => {
@@ -22,8 +23,8 @@ const Signup: React.FC = () => {
     mutation.mutate({
       password: data.password,
       email: data.email,
-      firstName: data.fullname.split(' ')[0],
-      lastName: data.fullname.split(' ')[1],
+      firstName: data.firstName,
+      lastName: data.lastName,
       passwordConfirmation: data.password,
     });
   };
@@ -42,7 +43,7 @@ const Signup: React.FC = () => {
           <h1 className="text-blue text-xl font-semibold mb-16 mt-5">Donatio</h1>
           <img src={imageSignup} className="mt-5" />
         </div>
-        <div className="md:w-[65%] tablet:w-[70%]  sm:w-full h-full bg-primary-200 rounded-[15px] px-5 py-10">
+        <div className="md:w-[55%] tablet:w-[70%]  sm:w-full h-full bg-primary-200 rounded-[15px] px-5 py-10">
           <h1 className="text-blue text-xl font-semibold text-center">Signup</h1>
           {mutation.error ? (
             <div className="bg-[#FB1278] text-white text-sm text-center py-2 rounded-[5px] my-2">
@@ -50,15 +51,25 @@ const Signup: React.FC = () => {
             </div>
           ) : null}
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Input
-              name="fullname"
-              register={register}
-              validator={validators['fullname']}
-              label="Full name"
-              placeholder="Your full name here"
-              style="md:mt-10 tablet:mt-5"
-              icon={<UserCircleIcon width={22} height={22} className="text-primary-900 mr-5" />}
-            />
+            <div className="flex md:flex-row tablet:flex-col">
+              <Input
+                name="firstName"
+                register={register}
+                validator={validators['firstname']}
+                label="First name"
+                placeholder="Your first name here"
+                style="md:mt-10 tablet:mt-5 w-[50%]"
+                icon={<UserCircleIcon width={22} height={22} className="text-primary-900 mr-5" />}
+              />
+              <Input
+                name="lastName"
+                register={register}
+                validator={validators['lastName']}
+                label="Last name"
+                placeholder="Your last name"
+                style="md:mt-10 tablet:mt-5 w-[50%]"
+              />
+            </div>
             <Input
               type="email"
               name="email"
@@ -80,10 +91,7 @@ const Signup: React.FC = () => {
               icon={<LockClosedIcon width={22} height={22} className="text-primary-900 mr-5" />}
             />
 
-            <p className="w-full text-right tablet:p-5 md:p-5 sm:pb-4 sm:px-3 text-blue sm:text-sm">
-              Forgot your password ?
-            </p>
-            <div className="px-5">
+            <div className="px-5 pt-10">
               <Button
                 isLoading={mutation.isLoading}
                 height="h-[40px]"
