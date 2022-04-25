@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
   HomeIcon,
@@ -6,6 +6,7 @@ import {
   UserGroupIcon,
   AdjustmentsIcon,
   HandIcon,
+  UserIcon,
 } from '@heroicons/react/solid';
 import MenuItem from './Item';
 import { UserContext } from '../layout/hooks/user.context';
@@ -48,6 +49,12 @@ const menusAdmin = [
     active: false,
   },
   {
+    value: 'Users',
+    link: '/users',
+    icon: <UserIcon width={22} className="mr-4" />,
+    active: false,
+  },
+  {
     value: 'Groups',
     link: '/groups',
     icon: <UserGroupIcon width={22} className="mr-4" />,
@@ -69,6 +76,7 @@ type PropTypes = {
 const Menu: React.FC<PropTypes> = (props) => {
   const location = useLocation();
   const path = location.pathname;
+  const user = useContext(UserContext);
 
   return (
     <UserContext.Consumer>
@@ -79,7 +87,10 @@ const Menu: React.FC<PropTypes> = (props) => {
           }`}
         >
           <ul className="list-reset p-6 pt-10">
-            {(user.role === 'admin' ? menusAdmin : menus).map((menu, index) => (
+            {(user.visibleView.includes('group') || user.visibleView === 'admin'
+              ? menusAdmin
+              : menus
+            ).map((menu, index) => (
               <MenuItem
                 {...menu}
                 index={index}

@@ -7,6 +7,7 @@ import NeedDetailPage from '@pages/needs/detail';
 import NeedListPage from '@pages/needs/list';
 import UserGroupListPage from '@pages/user-groups/list';
 import { Route, Routes, Navigate } from 'react-router-dom';
+import UserListPage from '@pages/users';
 
 const AdminRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const AdminRoutes = () => {
       <Route path="/donations" element={<DonationListPage />} />
       <Route path="/groups" element={<UserGroupListPage />} />
       <Route path="/settings" element={<Profile />} />
+      <Route path="users" element={<UserListPage />} />
       <Route element={<Navigate to="/" />} />
     </Routes>
   );

@@ -7,8 +7,8 @@ interface IOption {
 }
 
 type Props = {
-  label: string;
-  placeholder: string;
+  label?: string;
+  placeholder?: string;
   style?: string;
   icon?: ReactNode;
   register?: any;
@@ -18,15 +18,19 @@ type Props = {
   options: IOption[];
   defaultValue?: string;
   setValue?: any;
+  containerStyle?: string;
+  color?: string;
+  bg?: string;
+  showIndicator?: boolean;
 };
 
-const customStyles = {
+const customStyles = (color: string, bgColor: string, showIndicator = true) => ({
   option: (provided: any, state: any) => ({
     ...provided,
     height: '40px',
-    color: state.isSelected ? '#fff' : '#1278FB',
+    color: state.isSelected ? '#fff' : color,
     paddingTop: 10,
-    backgroundColor: state.isSelected ? '#1278FB' : '#DFEDFF',
+    backgroundColor: state.isSelected ? color : bgColor,
     zIndex: 10,
   }),
   control: () => ({
@@ -34,16 +38,37 @@ const customStyles = {
     display: 'flex',
     height: '45px',
     zIndex: 100,
+    color,
   }),
   menuList: (provided: any) => ({
     ...provided,
-    backgroundColor: '#DFEDFF',
+    backgroundColor: bgColor,
   }),
   menuPortal: (provided: any) => ({
     ...provided,
     borderRadius: 15,
   }),
-};
+  dropdownIndicator: (provided: any) => ({
+    ...provided,
+    color: color,
+  }),
+  indicatorSeparator: (provided: any) => ({
+    ...provided,
+    backgroundColor: showIndicator ? color : 'transparent',
+  }),
+  input: (provided: any) => ({
+    ...provided,
+    color: color,
+  }),
+  placeholder: (provided: any) => ({
+    ...provided,
+    color: color,
+  }),
+  singleValue: (provided: any) => ({
+    ...provided,
+    color,
+  }),
+});
 
 const Select: React.FC<Props> = (props: Props) => {
   const {
@@ -57,21 +82,25 @@ const Select: React.FC<Props> = (props: Props) => {
     type,
     options,
     defaultValue,
+    showIndicator = true,
   } = props;
   return (
     <div className={`px-5 sm:px-2 sm:mb-5 ${style}`}>
-      <div className="text-blue sm:text-sm flex flex-row">
-        {icon}
-        <span>{label} </span>
-      </div>
-      <div className="bg-primary-300 px-2 mt-2 rounded-[15px]">
+      {label && (
+        <div className="text-blue sm:text-sm flex flex-row">
+          {icon}
+          <span>{label} </span>
+        </div>
+      )}
+      <div className={`px-2 mt-2 rounded-[15px] ${props.containerStyle || 'bg-primary-300'}`}>
         {props.setValue ? (
           <ReactSelect
             onChange={(e) => {
               props.setValue(props.name, e?.value);
             }}
             options={props.options}
-            styles={customStyles}
+            styles={customStyles(props.color || '#1278FB', props.bg || '#DFEDFF', showIndicator)}
+            defaultValue={options.find((option) => option.value === defaultValue)}
           />
         ) : (
           <select

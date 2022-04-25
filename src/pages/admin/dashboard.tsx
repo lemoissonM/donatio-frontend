@@ -1,18 +1,21 @@
 import DashboardChart from '@features/dashboard/chart';
 import { useDonations } from '@features/donations/hooks/get-list-hooks';
 import DonationItem from '@features/donations/item';
+import { UserContext } from '@features/ui/layout/hooks/user.context';
 import { LoadingIcon } from '@features/ui/Loader/Icon';
 import { UserCircleIcon } from '@heroicons/react/outline';
 import millify from 'millify';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useDonationCount } from './hooks/get-donation-count.hook';
 import { useTopContributors } from './hooks/get-top-contributors.hook';
 
 const DashboardPage: React.FC = () => {
-  const donation = useDonations();
-  const topContributors = useTopContributors();
-  const donationCount = useDonationCount();
-  console.log(topContributors.data);
+  const user = useContext(UserContext);
+  const groupId = user.visibleView.includes('group') ? user.visibleView.split('/')[1] : '';
+  const donation = useDonations(groupId);
+  const topContributors = useTopContributors(groupId);
+  const donationCount = useDonationCount(groupId);
+
   return (
     <div className="w-full md:mt-11 sm:mt-3">
       <div className="flex md:flex-row sm:flex-col justify-between md:mr-10">

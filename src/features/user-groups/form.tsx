@@ -1,17 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Input from '@features/ui/Input';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Button from '@features/ui/Button';
 import { useCreateNeed } from './hooks/create-item.hook';
 import TextArea from '@features/ui/TextArea';
 import FileUpload from '@features/ui/FileUpload';
-import { UserContext } from '@features/ui/layout/hooks/user.context';
 
 interface IFormInput {
   needId: string;
   totalNeeded: number;
   imgUrl: any;
-  groupId: string;
 }
 
 type NeedFormType = {
@@ -32,9 +30,6 @@ const NeedForm: React.FC<NeedFormType> = (props) => {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     mutation.mutate(data);
   };
-
-  const user = useContext(UserContext);
-  const groupId = user.visibleView.includes('group') ? user.visibleView.split('/')[1] : '';
 
   return (
     <div
@@ -75,7 +70,6 @@ const NeedForm: React.FC<NeedFormType> = (props) => {
             />
           </div>
           <input {...register('needId')} name="needId" hidden value={props.needId} />
-          {groupId && <input {...register('groupId')} name="groupId" hidden value={groupId} />}
         </div>
         <div className="md:grid md:grid-cols-2 gap-3">
           <button

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ChartProps, Chart } from '@features/ui/Chart';
 import { useChartData } from './hooks/chart.hook';
 import { LoadingIcon } from '@features/ui/Loader/Icon';
+import { UserContext } from '@features/ui/layout/hooks/user.context';
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const options = {
@@ -30,7 +31,9 @@ const options = {
 };
 
 const DashboardChart: React.FC = () => {
-  const chart = useChartData();
+  const user = useContext(UserContext);
+  const groupId = user.visibleView.includes('group') ? user.visibleView.split('/')[1] : '';
+  const chart = useChartData(groupId);
   const monthArray = [];
 
   for (let i = 0; i < 6; i++) {
@@ -41,21 +44,23 @@ const DashboardChart: React.FC = () => {
 
   const chartData: ChartProps = {
     data: {
-      labels: monthArray.map((month) => months[month]).reverse(),
+      labels: monthArray.map((month) => months[month]).reverse?.(),
       datasets: [
         {
           label: 'Total',
           backgroundColor: '#FDC781',
-          data: monthArray
-            .map((m) => chart?.data?.[0]?.find((item: any) => item.month === m + 1)?.sum || 0)
-            .reverse(),
+          data:
+            monthArray
+              .map((m) => chart?.data?.[0]?.find?.((item: any) => item.month === m + 1)?.sum || 0)
+              .reverse() || [],
         },
         {
           label: 'Used',
           backgroundColor: '#88B9F6',
-          data: monthArray
-            .map((m) => chart?.data?.[1]?.find((item: any) => item.month === m + 1)?.sum || 0)
-            .reverse(),
+          data:
+            monthArray
+              .map((m) => chart?.data?.[1]?.find?.((item: any) => item.month === m + 1)?.sum || 0)
+              .reverse() || [],
         },
       ],
     },

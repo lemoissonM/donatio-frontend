@@ -1,3 +1,13 @@
+import { UserGroup } from "@features/user-groups/types/user-group";
+
+type Group = {
+  id: string;
+  userId: string;
+  userGroupId: string;
+  role: string;
+  userGroup: UserGroup;
+};
+
 export type User = {
   id: string;
   firstName: string;
@@ -13,4 +23,5 @@ export type User = {
   totalSum: number;
   totalSumMonth: number;
   role: string;
+  groups: Group[];
 };

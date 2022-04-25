@@ -1,6 +1,7 @@
 import Button from '@features/ui/Button';
+import { UserContext } from '@features/ui/layout/hooks/user.context';
 import { LoadingIcon } from '@features/ui/Loader/Icon';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import NeedForm from './form';
 import { useNeeds } from './hooks/get-list.hook';
 import NeedItem from './Item';
@@ -11,7 +12,10 @@ type propsType = {
 };
 
 const NeedList: React.FC<propsType> = (props: propsType) => {
-  const { isFetching, data } = useNeeds();
+  const user = useContext(UserContext);
+  const groupId = user.visibleView.includes('group') ? user.visibleView.split('/')[1] : '';
+
+  const { isFetching, data } = useNeeds(groupId);
   const [showForm, setShowForm] = useState(false);
 
   return (

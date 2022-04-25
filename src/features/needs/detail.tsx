@@ -87,7 +87,7 @@ const NeedDetail: React.FC<PropTypes> = (props) => {
                 </div>
               )}
 
-              <p className="mt-4 font-bold text-base text-primary-900 ">
+              <p className="mt-4 font-bold text-base text-primary-900 mb-3">
                 Total needed :{' '}
                 <span className="text-secondary-900"> {millify(need?.totalNeeded | 0)} USD</span>
               </p>
@@ -117,7 +117,7 @@ const NeedDetail: React.FC<PropTypes> = (props) => {
           </div>
         )}
         {showDonation && (
-          <div className="absolute h-full top-0 bg-[#000] bg-opacity-25 flex  flex-col justify-center  w-full left-0 px-5 my-auto">
+          <div className="absolute z-[100] h-full top-0 bg-primary-900 bg-opacity-20 flex  flex-col justify-center  w-full left-0 px-5 my-auto">
             <div className="sm:w-full md:w-[50%] mx-auto">
               <DonateForm needId={need?.id} close={() => setShowDonation(false)} />
             </div>
