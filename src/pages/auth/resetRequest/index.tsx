@@ -15,7 +15,7 @@ interface IFormInput {
 const ResetPassword: React.FC = () => {
   const { register, handleSubmit, watch } = useForm<IFormInput>();
   const history = useNavigate();
-  const mutation = useReset(history);
+  const mutation = useReset();
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     mutation.mutate(data);
   };

@@ -2,35 +2,36 @@ import React from 'react';
 import Input from '@features/ui/Input';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Button from '@features/ui/Button';
-import { useCreateNeed } from './hooks/create-item.hook';
+//import { useCreateUserGroup } from './hooks/create-item.hook';
 import TextArea from '@features/ui/TextArea';
 import FileUpload from '@features/ui/FileUpload';
 
 interface IFormInput {
   needId: string;
-  totalNeeded: number;
+  totalUserGrouped: number;
   imgUrl: any;
 }
 
-type NeedFormType = {
+type UserGroupFormType = {
   needId?: string;
   close?: any;
   isShowing?: boolean;
 };
 
-const NeedForm: React.FC<NeedFormType> = (props) => {
+const UserGroupForm: React.FC<UserGroupFormType> = (props) => {
   const { register, handleSubmit, reset, watch } = useForm<IFormInput>();
   const resetForm = () => {
     reset();
     props.close?.();
   };
-  const mutation = useCreateNeed(resetForm);
+  return <div></div>;
+  //const mutation = useCreateUserGroup(resetForm);
   const watchImage = watch('imgUrl');
-
+  /*
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     mutation.mutate(data);
-  };
-
+  };*/
+  /*
   return (
     <div
       className={`fixed z-[100] inset-0 overflow-y-auto  flex flex-col justify-center transition-all delay-700 ease-linear bg-opacity-20 bg-primary-900  ${
@@ -43,15 +44,10 @@ const NeedForm: React.FC<NeedFormType> = (props) => {
           !props.isShowing ? '-translate-y-[1000px]' : 'translate-y-0'
         }`}
       >
-        <h1 className="mx-5 tablet:mx-2 font-semibold mb-5 text-lg">Create Need</h1>
+        <h1 className="mx-5 tablet:mx-2 font-semibold mb-5 text-lg">Create group</h1>
         <div className="md:grid md:grid-cols-2 gap-3">
           <Input register={register} name="title" label="Title" placeholder="Your title here" />
-          <Input
-            register={register}
-            name="totalNeeded"
-            label="Total Needed"
-            placeholder="Your amount here"
-          />
+          <Input register={register} name="title" label="Title" placeholder="Your title here" />
           <div className="mt-0 col-span-2">
             <TextArea
               register={register}
@@ -92,7 +88,7 @@ const NeedForm: React.FC<NeedFormType> = (props) => {
         </div>
       </form>
     </div>
-  );
+  );*/
 };
 
-export default NeedForm;
+export default UserGroupForm;

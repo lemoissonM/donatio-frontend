@@ -55,7 +55,7 @@ const Signup: React.FC = () => {
               <Input
                 name="firstName"
                 register={register}
-                validator={validators['firstname']}
+                validator={validators['firstName']}
                 label="First name"
                 placeholder="Your first name here"
                 style="md:mt-10 tablet:mt-5 w-[50%]"
