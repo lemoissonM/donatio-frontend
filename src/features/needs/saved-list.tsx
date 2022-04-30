@@ -8,16 +8,9 @@ type propsType = {
 };
 
 const SavedNeedList: React.FC<propsType> = () => {
-  const { isFetching, data } = useSavedNeeds();
-  console.log(data);
+  const { data } = useSavedNeeds();
   return (
     <div className="w-full mt-10 sm:mt-3 overflow-y-scroll flex flex-col md:pb-20 tablet:pb-60">
-      {isFetching && (
-        <div className="mx-auto h-full justify-center items-center content-center">
-          <LoadingIcon />
-          <p className="text-blue">Fetching data ...</p>
-        </div>
-      )}
       {data?.map((n) => (
         <NeedItem need={n.need} key={n.id} saved savedNeedId={n.id} />
       ))}

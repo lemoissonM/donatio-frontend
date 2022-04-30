@@ -18,6 +18,7 @@ const createApi = (
             },
           });
           if (response.ok) {
+            await new Promise((resolve) => setTimeout(resolve, 1000));
             return response.json();
           }
           return Promise.resolve({ error: 'Malformed Request' });

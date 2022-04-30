@@ -8,7 +8,7 @@ const UserList: React.FC = () => {
   const user = useContext(UserContext);
   const groupId = user.visibleView.includes('group') ? user.visibleView.split('/')[1] : '';
 
-  const { data, isLoading } = useUserList(groupId);
+  const { data } = useUserList(groupId);
   return (
     <div>
       <table className="table-fixed w-full p-5">
@@ -25,17 +25,12 @@ const UserList: React.FC = () => {
             </th>
           </tr>
         </thead>
-        {isLoading && (
-          <div className="absolute top-[50%] left-[60%]">
-            <LoadingIcon height={30} />
-          </div>
-        )}
         {data && (
           <tbody>
             {data.map((user, index) => (
               <tr
                 key={user.id}
-                className={`bg-primary-400 bg-opacity-${index % 2 === 0 ? '20' : '10'}`}
+                className={`bg-primary-400 ${index % 2 === 0 ? 'bg-opacity-20' : 'bg-opacity-5'}`}
               >
                 <td className="text-primary-900 font-semibold text-sm text-left pl-5 py-4 overflow-x-hidden">
                   {user.firstName} {user.lastName}

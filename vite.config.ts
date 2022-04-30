@@ -14,4 +14,9 @@ export default defineConfig({
     StylelintPlugin(),
     eslintPlugin({ fix: true }),
   ],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './setupTests.js',
+  },
 });

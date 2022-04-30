@@ -69,12 +69,6 @@ const DashboardChart: React.FC = () => {
   return (
     <div className="bg-secondary-100 w-full p-5 rounded-[15px]">
       {chart.data && <Chart {...chartData} />}
-      {chart.isLoading && (
-        <div className="flex flex-col items-center justify-center">
-          <LoadingIcon height={40} />
-          <p className="text-sm text-secondary-900">Loading chart data</p>
-        </div>
-      )}
     </div>
   );
 };

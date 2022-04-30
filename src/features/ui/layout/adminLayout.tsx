@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { LoadingIcon } from '../Loader/Icon';
 import AsideActions from './AsideActions';
 import Sidebar from './sidebar';
+
+const LoadingComponent = ({ isHome = false }) => (
+  <div className="mx-auto my-auto mt-20 h-full justify-center items-center content-center">
+    <LoadingIcon />
+    <p className="text-blue">Fetching data ...</p>
+  </div>
+);
 
 const AdminLayout: React.FC = (props) => {
   const { pathname } = useLocation();
@@ -20,7 +28,9 @@ const AdminLayout: React.FC = (props) => {
         <div className="absolute right-[60px] w-[200px] sm:hidden">
           <AsideActions />
         </div>
-        <div className={`${!isHome ? 'md:mr-[40px]' : ''}`}>{props.children}</div>
+        <Suspense fallback={<LoadingComponent />}>
+          <div className={`${!isHome ? 'md:mr-[40px]' : ''}`}>{props.children}</div>
+        </Suspense>
       </main>
     </React.Fragment>
   );

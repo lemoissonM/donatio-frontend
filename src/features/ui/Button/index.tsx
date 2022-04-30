@@ -55,7 +55,7 @@ const Button: React.FC<Props> = (props: Props) => {
 
   return (
     <button
-      className={` flex flex-row items-center content-center justify-center transition z-20 ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 bg-${backgroundColor} text-white rounded-[15px] ${width} h-[40px] hover:border-${textColor} hover:border-2`}
+      className={`flex flex-row items-center content-center justify-center transition z-20 ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 bg-${backgroundColor} text-white rounded-[15px] ${width} h-[40px] hover:border-${textColor} hover:border-2`}
       onClick={onClick}
     >
       {label}

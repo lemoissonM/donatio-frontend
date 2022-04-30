@@ -15,7 +15,7 @@ const NeedList: React.FC<propsType> = (props: propsType) => {
   const user = useContext(UserContext);
   const groupId = user.visibleView.includes('group') ? user.visibleView.split('/')[1] : '';
 
-  const { isFetching, data } = useNeeds(groupId);
+  const { data } = useNeeds(groupId);
   const [showForm, setShowForm] = useState(false);
 
   return (
@@ -37,12 +37,6 @@ const NeedList: React.FC<propsType> = (props: propsType) => {
           setShowForm(false);
         }}
       />
-      {isFetching && (
-        <div className="mx-auto h-full justify-center items-center content-center">
-          <LoadingIcon />
-          <p className="text-blue">Fetching data ...</p>
-        </div>
-      )}
       <div className="h-screen overflow-y-scroll flex flex-col md:pb-20 tablet:pb-60">
         {data?.map((n) => (
           <NeedItem need={n} key={n.id} />
