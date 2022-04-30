@@ -50,10 +50,10 @@ const UserList: React.FC = () => {
                     ]}
                     defaultValue={user.role || 'user'}
                     register={() => {
-                      console.log('register');
+                      // console.log('register');
                     }}
                     setValue={() => {
-                      console.log('setValue');
+                      // console.log('setValue');
                     }}
                     color="#FB9512"
                     bg="#F7E6D0"

@@ -15,7 +15,7 @@ export const useVerify = (navigate: any) => {
       }
     },
     onError: (error: AxiosError) => {
-      console.log(error);
+       // console.log(error);
     },
   });
 };

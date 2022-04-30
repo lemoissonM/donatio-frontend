@@ -20,7 +20,7 @@ export const useSignup = (navigate: any) => {
       }
     },
     onError: (error: AxiosError) => {
-      console.log(error?.response?.data);
+      // console.log(error?.response?.data);
     },
   });
 };

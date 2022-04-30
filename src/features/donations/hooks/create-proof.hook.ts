@@ -15,7 +15,7 @@ export const useDonationProofForm = (reset: any) => {
   };
   return useMutation(donationForm, {
     onSuccess: (result: AxiosResponse) => {
-      console.log(result);
+       // console.log(result);
       if (result.status === 201) {
         reset();
         makeToast.success('Proof added successfully !', defaultOptions);
@@ -24,7 +24,7 @@ export const useDonationProofForm = (reset: any) => {
     },
     onError: (error: AxiosError) => {
       makeToast.error('Failed to add the proof', defaultOptions);
-      console.log(error?.response);
+       // console.log(error?.response);
     },
   });
 };

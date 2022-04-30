@@ -12,7 +12,7 @@ export const useReset = () => {
       makeToast('Reset link sent to your email', defaultOptions);
     },
     onError: (error: AxiosError) => {
-      console.log(error);
+       // console.log(error);
     },
   });
 };
