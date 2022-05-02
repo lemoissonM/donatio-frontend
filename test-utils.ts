@@ -1,4 +1,6 @@
-import { render } from '@testing-library/react';
+import testingLib from '@testing-library/react';
+
+const { render } = testingLib;
 
 const customRender = (ui: any, options = {}) =>
   render(ui, {

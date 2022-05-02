@@ -16,7 +16,7 @@ const Stat: React.FC = () => {
   return (
     <UserContext.Consumer>
       {(data) => {
-        let progress = getProgress(data.monthlyObjective, data?.totalSumMonth);
+        let progress = getProgress(data.monthlyObjective || 0, data?.totalSumMonth || 0);
         if (Number.isNaN(progress)) progress = 0;
         return (
           <div className="mt-10">

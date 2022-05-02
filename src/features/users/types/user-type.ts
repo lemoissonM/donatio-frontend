@@ -1,4 +1,4 @@
-import { UserGroup } from "@features/user-groups/types/user-group";
+import { UserGroup } from '@features/user-groups/types/user-group';
 
 type Group = {
   id: string;

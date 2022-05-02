@@ -21,6 +21,7 @@ export const LoadingIcon: React.FC<PropTypes> = (props) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>Loading</title>
       <circle className={`w-[100%] ${fill} opacity-50`} id="circle1" cx="60" cy="60" r="60" />
       <circle className={`w-[100%] ${fill} opacity-50`} id="circle2" cx="60" cy="60" r="60" />
     </svg>

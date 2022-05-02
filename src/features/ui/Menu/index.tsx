@@ -76,7 +76,6 @@ type PropTypes = {
 const Menu: React.FC<PropTypes> = (props) => {
   const location = useLocation();
   const path = location.pathname;
-  const user = useContext(UserContext);
 
   return (
     <UserContext.Consumer>
