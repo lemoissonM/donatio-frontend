@@ -10,7 +10,7 @@ export const useDonationForm = (reset: any) => {
   };
   return useMutation(donationForm, {
     onSuccess: (result: AxiosResponse) => {
-       // console.log(result);
+      // console.log(result);
       if (result.status === 201) {
         reset();
         makeToast.success('Thank you for your donation !', defaultOptions);
@@ -19,7 +19,7 @@ export const useDonationForm = (reset: any) => {
     },
     onError: (error: AxiosError) => {
       makeToast.error('Failed to save your donation', defaultOptions);
-       // console.log(error?.response);
+      // console.log(error?.response);
     },
   });
 };
