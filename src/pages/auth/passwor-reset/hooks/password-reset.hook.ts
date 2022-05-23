@@ -7,17 +7,17 @@ export const useResetPassword = (navigate: any) => {
   const reset = (data: any) => {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
-     // console.log(params, 'params');
+    // console.log(params, 'params');
     return postApi(`auth/reset-password?token=${params.token}`, data);
   };
   return useMutation(reset, {
     onSuccess: (res) => {
-       // console.log(res);
+      // console.log(res);
       makeToast('Reset link sent to your email', defaultOptions);
       navigate('/login');
     },
     onError: (error: AxiosError) => {
-       // console.log(error);
+      // console.log(error);
     },
   });
 };

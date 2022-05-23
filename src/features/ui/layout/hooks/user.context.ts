@@ -1,6 +1,6 @@
 import { User } from '@features/users/types/user-type';
 import React from 'react';
-type UserContextType = {
+export type UserContextType = {
   visibleView: string;
   setVisibleView?: React.Dispatch<React.SetStateAction<string>>;
 };

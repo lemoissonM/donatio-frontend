@@ -1,6 +1,5 @@
 import Button from '@features/ui/Button';
 import { UserContext } from '@features/ui/layout/hooks/user.context';
-import { LoadingIcon } from '@features/ui/Loader/Icon';
 import React, { useContext, useState } from 'react';
 import NeedForm from './form';
 import { useNeeds } from './hooks/get-list.hook';
@@ -37,7 +36,10 @@ const NeedList: React.FC<propsType> = (props: propsType) => {
           setShowForm(false);
         }}
       />
-      <div className="h-screen overflow-y-scroll flex flex-col md:pb-20 tablet:pb-60">
+      <div
+        className="h-screen overflow-y-scroll flex flex-col md:pb-20 tablet:pb-60"
+        id="need-list"
+      >
         {data?.map((n) => (
           <NeedItem need={n} key={n.id} />
         ))}
